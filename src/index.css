@@ -16,4 +16,25 @@ code {
   height: 100%;
   font-size: 40px;
   color: #010101;
+  padding: 0px 20px;
+  overflow: hidden;
+}
+
+.navigation {
+  display: flex;
+}
+
+.movie-list {
+  list-style: none;
+  margin: 0px;
+}
+
+.movie-list li {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.movie-title {
+  margin: 0px 0px 20px 0px;
+  font-size: 32px;
 }

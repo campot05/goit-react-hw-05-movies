@@ -7,7 +7,7 @@ export const App = () => {
   return (
     <div className="App">
       <Header>
-        <nav>
+        <nav className="navigation">
           <Link to="/">Home</Link>
           <Link to="/movies">Movies</Link>
         </nav>

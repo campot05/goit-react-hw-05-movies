@@ -12,7 +12,8 @@ export const Home = () => {
   }, []);
   return (
     <main>
-      <ul>
+      <h1 className="movie-title">Trending today</h1>
+      <ul className="movie-list">
         {popular.map(({ title, id }) => {
           return <li key={id}>{title}</li>;
         })}
