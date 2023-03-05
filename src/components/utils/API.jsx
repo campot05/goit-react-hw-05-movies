@@ -12,3 +12,14 @@ export async function fetchPopular() {
     console.log(error);
   }
 }
+
+export async function getMovieData(id) {
+  try {
+    const response = await axios.get(
+      `/movie/${id}?api_key=${API_KEY}&language=en-US`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -18,7 +18,9 @@ export const Home = () => {
         {popular.map(({ title, id }) => {
           return (
             <li key={id}>
-              <Link className="movie-list__link">{title}</Link>
+              <Link className="movie-list__link" to={`/movies/${id}`}>
+                {title}
+              </Link>
             </li>
           );
         })}
