@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchPopular } from 'components/utils';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
   const [popular, setPopular] = useState([]);
@@ -15,7 +16,11 @@ export const Home = () => {
       <h1 className="movie-title">Trending today</h1>
       <ul className="movie-list">
         {popular.map(({ title, id }) => {
-          return <li key={id}>{title}</li>;
+          return (
+            <li key={id}>
+              <Link className="movie-list__link">{title}</Link>
+            </li>
+          );
         })}
       </ul>
     </main>

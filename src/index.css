@@ -38,3 +38,8 @@ code {
   margin: 0px 0px 20px 0px;
   font-size: 32px;
 }
+
+.movie-list__link {
+  text-decoration: none;
+  color: #3a81b0;
+}
