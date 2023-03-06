@@ -29,7 +29,7 @@ export const Cast = () => {
                   }
                   alt="text"
                 ></img>
-                <p>{name}</p>
+                <b>{name}</b>
                 <p>Character: {character}</p>
               </li>
             );
