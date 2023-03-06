@@ -9,10 +9,9 @@ export const Cast = () => {
   useEffect(() => {
     getCastList(id).then(res => {
       setCast(res.cast.slice(0, 10));
-      console.log(res.cast);
     });
   }, [id]);
-  console.log(cast);
+
   return (
     <>
       {cast && (
@@ -20,7 +19,6 @@ export const Cast = () => {
           {cast.map(({ cast_id, name, character, profile_path }) => {
             return (
               <li key={cast_id}>
-                {console.log(profile_path)}
                 <img
                   src={
                     profile_path
@@ -29,7 +27,7 @@ export const Cast = () => {
                   }
                   alt="text"
                 ></img>
-                <b>{name}</b>
+                <p>{name}</p>
                 <p>Character: {character}</p>
               </li>
             );
