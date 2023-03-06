@@ -1,6 +1,16 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieData } from 'components/utils';
+import {
+  Container,
+  GoBack,
+  Image,
+  Title,
+  Overview,
+  Genres,
+  Genre,
+  Text,
+} from './MovieDetails.styled';
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
@@ -14,21 +24,27 @@ export const MovieDetails = () => {
   console.log(movie);
   return (
     <main>
-      <button> &#8592; Go back</button>
+      <GoBack to="/"> &#8592; Go back</GoBack>
       {movie && (
-        <div>
-          <img src={`${imgUrl}${movie.poster_path}`} alt={movie.title}></img>
-          <h2>{movie.title}</h2>
-          <p>User Score: {Math.round(movie.vote_average * 10)}%</p>
-          <p>Overview</p>
-          <p>{movie.overview}</p>
-          <p>
-            {movie &&
-              movie.genres.map(gen => {
-                return <span key={gen.id}>{gen.name}</span>;
-              })}
-          </p>
-        </div>
+        <Container>
+          <Image
+            src={`${imgUrl}${movie.poster_path}`}
+            alt={movie.title}
+          ></Image>
+          <div>
+            <Title>{movie.title}</Title>
+            <Text>User Score: {Math.round(movie.vote_average * 10)}%</Text>
+            <Overview>Overview</Overview>
+            <Text>{movie.overview}</Text>
+            <Text>
+              <Genres>Genres</Genres>
+              {movie &&
+                movie.genres.map(gen => {
+                  return <Genre key={gen.id}>{gen.name}</Genre>;
+                })}
+            </Text>
+          </div>
+        </Container>
       )}
     </main>
   );
