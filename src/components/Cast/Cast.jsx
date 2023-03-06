@@ -2,8 +2,9 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getCastList } from 'components/utils';
 import { List } from './Cast.styled';
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState(null);
+
   const { id } = useParams();
   const imgUrl = 'https://image.tmdb.org/t/p/w500/';
   useEffect(() => {
@@ -37,3 +38,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

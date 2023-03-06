@@ -1,11 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
 import { Link, Header } from './App.styled';
-import { Home } from 'pages/Home';
-import { Movies } from 'pages/Movies';
-import { MovieDetails } from './MovieDetails/MovieDetails';
-import { Cast } from './Cast/Cast';
-import { Reviews } from './Reviews/Reviews';
+
 import '../index.css';
+const Home = lazy(() => import('pages/Home.jsx'));
+const Movies = lazy(() => import('pages/Movies.jsx'));
+const MovieDetails = lazy(() =>
+  import('components/MovieDetails/MovieDetails.jsx')
+);
+const Cast = lazy(() => import('components/Cast/Cast.jsx'));
+const Reviews = lazy(() => import('components/Reviews/Reviews.jsx'));
 export const App = () => {
   return (
     <div className="App">
@@ -16,14 +20,16 @@ export const App = () => {
         </nav>
       </Header>
 
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/movies" element={<Movies />}></Route>
-        <Route path="/movies/:id" element={<MovieDetails />}>
-          <Route path="cast" element={<Cast />}></Route>
-          <Route path="reviews" element={<Reviews />}></Route>
-        </Route>
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/movies" element={<Movies />}></Route>
+          <Route path="/movies/:id" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />}></Route>
+            <Route path="reviews" element={<Reviews />}></Route>
+          </Route>
+        </Routes>
+      </Suspense>
     </div>
   );
 };

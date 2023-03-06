@@ -3,17 +3,24 @@ import { useParams } from 'react-router-dom';
 import { getReviews } from 'components/utils';
 import { List } from './Reviews.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
-    getReviews(id).then(res => setReviews(res.results));
+    setLoading(true);
+    getReviews(id).then(res => {
+      setReviews(res.results);
+      setLoading(false);
+    });
   }, [id]);
 
   return (
     <>
-      {reviews.length > 0 ? (
+      {loading ? (
+        'Loading...'
+      ) : reviews.length > 0 ? (
         <List>
           {reviews.map(({ id, author, content }) => {
             return (
@@ -30,3 +37,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;

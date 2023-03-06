@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchPopular } from 'components/utils';
 import { Link } from 'react-router-dom';
 
-export const Home = () => {
+const Home = () => {
   const [popular, setPopular] = useState([]);
   useEffect(() => {
     async function getPopularMovie() {
@@ -28,3 +28,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;

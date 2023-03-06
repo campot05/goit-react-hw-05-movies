@@ -9,7 +9,7 @@ import {
   AdditionalLink,
 } from './MovieDetails.styled';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
   const imgUrl = 'https://image.tmdb.org/t/p/w500/';
@@ -60,3 +60,5 @@ export const MovieDetails = () => {
     </main>
   );
 };
+
+export default MovieDetails;

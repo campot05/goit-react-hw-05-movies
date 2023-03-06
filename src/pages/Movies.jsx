@@ -1,4 +1,4 @@
-export const Movies = () => {
+const Movies = () => {
   return (
     <main>
       <div>
@@ -8,3 +8,5 @@ export const Movies = () => {
     </main>
   );
 };
+
+export default Movies;
