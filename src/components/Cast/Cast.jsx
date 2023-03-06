@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getCastList } from 'components/utils';
+import { List } from './Cast.styled';
 export const Cast = () => {
   const [cast, setCast] = useState(null);
   const { id } = useParams();
@@ -15,7 +16,7 @@ export const Cast = () => {
   return (
     <>
       {cast && (
-        <ul>
+        <List>
           {cast.map(({ cast_id, name, character, profile_path }) => {
             return (
               <li key={cast_id}>
@@ -33,7 +34,7 @@ export const Cast = () => {
               </li>
             );
           })}
-        </ul>
+        </List>
       )}
     </>
   );
