@@ -20,7 +20,6 @@ export const MovieDetails = () => {
     });
   }, [id]);
 
-  console.log(movie);
   return (
     <main>
       <GoBack to="/"> &#8592; Go back</GoBack>

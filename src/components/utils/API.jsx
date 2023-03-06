@@ -23,3 +23,12 @@ export async function getMovieData(id) {
     console.log(error);
   }
 }
+
+export async function getCastList(id) {
+  try {
+    const response = await axios.get(`/movie/${id}/credits?api_key=${API_KEY}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
