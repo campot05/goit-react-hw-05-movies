@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useLocation, Link } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { getByQuery } from 'components/utils';
+import { List, LinkFilms } from './Movies.styled';
 const Movies = () => {
   const [data, setData] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -18,7 +19,6 @@ const Movies = () => {
   }, [searchQuery]);
 
   const location = useLocation();
-  console.log(location);
 
   const handleChange = e => {
     setQuery(e.target.value);
@@ -26,7 +26,6 @@ const Movies = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log(searchQuery);
     setSearchParams({ query: query });
   };
 
@@ -39,17 +38,17 @@ const Movies = () => {
       <div>
         {data &&
           (data.length > 0 ? (
-            <ul>
+            <List>
               {data.map(({ title, id }) => {
                 return (
                   <li key={id}>
-                    <Link state={{ from: location }} to={`/movies/${id}`}>
+                    <LinkFilms state={{ from: location }} to={`/movies/${id}`}>
                       {title}
-                    </Link>
+                    </LinkFilms>
                   </li>
                 );
               })}
-            </ul>
+            </List>
           ) : (
             <p>No movies with this title 😢</p>
           ))}
