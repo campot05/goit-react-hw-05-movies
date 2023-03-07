@@ -12,6 +12,7 @@ const Movies = () => {
     const getData = async () => {
       const { results } = await getByQuery(searchQuery);
       setData(results);
+      setQuery('');
     };
     if (searchQuery) {
       getData();
@@ -27,6 +28,7 @@ const Movies = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     setSearchParams({ query: query });
+    setQuery('');
   };
 
   return (
