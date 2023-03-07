@@ -7,6 +7,7 @@ import {
   Genres,
   Additional,
   AdditionalLink,
+  ListBtn,
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -19,7 +20,7 @@ const MovieDetails = () => {
       setMovie(res);
     });
   }, [id]);
-
+  console.log(movie);
   return (
     <main>
       <GoBack to="/"> &#8592; Go back</GoBack>
@@ -45,16 +46,17 @@ const MovieDetails = () => {
           <hr />
           <Additional>
             <h3>Additional information</h3>
-            <ul>
+            <ListBtn>
               <li>
                 <AdditionalLink to="cast">Cast</AdditionalLink>
               </li>
               <li>
                 <AdditionalLink to="reviews">Reviews</AdditionalLink>
               </li>
-            </ul>
+            </ListBtn>
+
+            <Outlet />
           </Additional>
-          <Outlet />
         </>
       )}
     </main>

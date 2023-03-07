@@ -39,24 +39,22 @@ export const Genres = styled.div`
   }
 `;
 export const Additional = styled.div`
-  ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-
-    align-items: center;
-    li {
-      margin-right: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
   h3 {
     margin: 0px 0px 20px 0px;
     font-size: 24px;
+  }
+`;
+
+export const ListBtn = styled.ul`
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  li {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
