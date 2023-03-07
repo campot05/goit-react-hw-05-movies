@@ -1,4 +1,4 @@
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieData } from 'components/utils';
 import {
@@ -20,10 +20,14 @@ const MovieDetails = () => {
       setMovie(res);
     });
   }, [id]);
-  console.log(movie);
+
+  const location = useLocation();
+
+  const lastPage = location.state?.from ?? '/';
+
   return (
     <main>
-      <GoBack to="/"> &#8592; Go back</GoBack>
+      <GoBack to={lastPage}> &#8592; Go back</GoBack>
       {movie && (
         <>
           <Container>
